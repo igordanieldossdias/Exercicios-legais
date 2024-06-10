@@ -1,0 +1,40 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu do cresimento do Gojo</title>
+    <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+    <div class="dropdown">
+        <button onclick="toggleDropdown()">Menu</button>
+        <div id="dropdownMenu" class="dropdown-content">
+            <a href="https://vocesabianime.com/wp-content/uploads/2023/10/Satoru_Gojo_e_citado_em_prova_de_fisica_brasileira_1133x637.jpg">Aluno</a>
+            <a href="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/74/2023/09/29/Gojo-Satoru-1626485619.jpg">Sensei</a>
+            <a href="https://p16-capcut-sign-va.ibyteimg.com/tos-alisg-v-643f9f/o8EAkl7uoCJAVgt0xKICBiiBfnBk9ZANFfPB4Q~tplv-nhvfeczskr-1:250:0.webp?lk3s=44acef4b&x-expires=1742576641&x-signature=DNKxgIhp%2FaMpBEs8qMUbqg687ew%3D">O mais Honrado</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("show");
+        }
+
+        
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

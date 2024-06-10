@@ -1,0 +1,35 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Itens do Gojo</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <ul class="itemlist">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+
+    <script>
+        function highlightItem(event) {
+
+            let items = document.querySelectorAll('.itemlist li');
+            items.forEach(item => item.classList.remove('corzinha'));
+
+            
+            event.target.classList.add('corzinha');
+        }
+
+     
+        document.querySelectorAll('.itemlist li').forEach(item => {
+            item.addEventListener('click', highlightItem);
+        });
+    </script>
+</body>
+</html>

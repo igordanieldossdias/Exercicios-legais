@@ -1,0 +1,56 @@
+<!--Igor Daniel dos Santos Dias-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Arquivos com Visualização</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="file-upload">
+        <h2>Upload de Arquivos com Visualização</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="fileInput" multiple>
+            <input type="submit" value="Enviar">
+        </form>
+        <div class="preview" id="preview"></div>
+    </div>
+
+        <script>
+            document.getElementById('uploadForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                const files = document.getElementById('fileInput').files;
+                const preview = document.getElementById('preview');
+    
+                preview.innerHTML = '';
+    
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileType = file.type;
+    
+                    if (fileType.startsWith('image/') || fileType === 'image/gif') {
+                        const reader = new FileReader();
+    
+                        reader.onload = function(event) {
+                            const img = document.createElement('img');
+                            img.src = event.target.result;
+                            img.classList.add('preview-item');
+                            preview.appendChild(img);
+                        }
+    
+                        reader.readAsDataURL(file);
+                    } else if (fileType.startsWith('video/')) {
+                        const video = document.createElement('video');
+                        video.src = URL.createObjectURL(file);
+                        video.controls = true;
+                        video.classList.add('preview-item');
+                        preview.appendChild(video);
+                    }
+                }
+            });
+        </script>
+    </body>
+    </html>

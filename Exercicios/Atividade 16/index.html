@@ -1,0 +1,79 @@
+<!--Igor Daniel dos Santos Dias-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas do Gojo</title>
+
+</head>
+<body>
+    <div class="task-list">
+        <h2>Lista de Tarefas do Gojo</h2>
+        <input type="text" id="taskInput" class="task-input" placeholder="Digite uma nova tarefa">
+        <link rel="stylesheet" href="css.css">
+        <div id="taskContainer"></div>
+    </div>
+
+    <script>
+
+        function renderTasks() {
+            const taskContainer = document.getElementById('taskContainer');
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            taskContainer.innerHTML = '';
+
+            tasks.forEach((task, index) => {
+                const taskItem = document.createElement('div');
+                taskItem.classList.add('task-item');
+                if (task.completed) {
+                    taskItem.classList.add('completed');
+                }
+
+                taskItem.innerHTML = `
+                    <input type="checkbox" ${task.completed ? 'checked' : ''} id="task${index}">
+                    <label for="task${index}">${task.text}</label>
+                    <button onclick="removeTask(${index})">Remover</button>
+                `;
+
+
+                taskItem.querySelector('input[type="checkbox"]').addEventListener('change', function() {
+                    tasks[index].completed = this.checked;
+                    localStorage.setItem('tasks', JSON.stringify(tasks));
+                    renderTasks();
+                });
+
+                taskContainer.appendChild(taskItem);
+            });
+        }
+
+        function addTask(text) {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.push({ text: text, completed: false });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        function removeTask(index) {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.splice(index, 1);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        document.getElementById('taskInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const text = this.value.trim();
+                if (text !== '') {
+                    addTask(text);
+                    this.value = '';
+                }
+            }
+        });
+
+
+        renderTasks();
+    </script>
+</body>
+</html>

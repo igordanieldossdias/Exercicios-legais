@@ -1,0 +1,56 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Bate-Papo com o Gojo</title>
+    <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+    <div id="chat">
+        <ul id="messages"></ul>
+        <form id="message-form">
+            <input id="name-input" type="text" placeholder="Digite seu nome" required>
+            <input id="message-input" type="text" placeholder="Digite sua mensagem" required>
+            <button id="send-button" type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+
+        ws.onopen = () => {
+            console.log('Connected to the server');
+        };
+
+        ws.onmessage = (event) => {
+            const messages = document.getElementById('messages');
+            const message = document.createElement('li');
+
+            event.data.text().then(text => {
+                const { name, content } = JSON.parse(text);
+                message.textContent = `${name}: ${content}`;
+                messages.appendChild(message);
+                messages.scrollTop = messages.scrollHeight;
+            });
+        };
+
+        const form = document.getElementById('message-form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const nameInput = document.getElementById('name-input');
+            const messageInput = document.getElementById('message-input');
+
+            const message = {
+                name: nameInput.value,
+                content: messageInput.value
+            };
+
+            ws.send(JSON.stringify(message));
+            messageInput.value = '';
+        });
+    </script>
+</body>
+</html>

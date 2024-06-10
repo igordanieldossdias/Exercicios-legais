@@ -1,0 +1,71 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Formulário de Contato como Satoru Gojo</title>
+</head>
+<body>
+    <h1>Formulário de Contato com Satoru Gojo</h1>
+    <form id="contactForm">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name">
+        <span id="nameError" class="error-message">O campo Nome é obrigatório.</span>
+        
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email">
+        <span id="emailError" class="error-message">O campo E-mail é obrigatório.</span>
+
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+        <span id="messageError" class="error-message">O campo Mensagem é obrigatório.</span>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+            document.querySelectorAll('.error').forEach(element => {
+                element.classList.remove('error');
+            });
+            document.querySelectorAll('.error-message').forEach(element => {
+                element.style.display = 'none';
+            });
+
+
+            let isValid = true;
+
+            let name = document.getElementById('name');
+            let email = document.getElementById('email');
+            let message = document.getElementById('message');
+
+            if (name.value.trim() === '') {
+                isValid = false;
+                name.classList.add('error');
+                document.getElementById('nameError').style.display = 'block';
+            }
+
+            if (email.value.trim() === '') {
+                isValid = false;
+                email.classList.add('error');
+                document.getElementById('emailError').style.display = 'block';
+            }
+
+            if (message.value.trim() === '') {
+                isValid = false;
+                message.classList.add('error');
+                document.getElementById('messageError').style.display = 'block';
+            }
+            if (isValid) {
+                alert('Formulário enviado com sucesso!');
+
+            }
+        });
+    </script>
+</body>
+</html>

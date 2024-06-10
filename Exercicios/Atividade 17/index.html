@@ -1,0 +1,42 @@
+<!--Igor Daniel dos Santos Dias-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Login do Gojo</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="login-form">
+        <h2>Formulário de Login do Gojo</h2>
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="Usuário">
+            <input type="password" id="password" name="password" placeholder="Senha">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+           
+            if (username === 'Satoru' && password === 'Gojo') {
+
+                localStorage.setItem('isLoggedIn', true);
+                alert('Login bem-sucedido!');
+                window.location.href = 'https://youtu.be/MSYZRDiO3sI?si=_7gIJgsDM0fcA4Jt';
+            } else {
+                alert('Usuário ou senha inválidos. Tente novamente.');
+            }
+        });
+    </script>
+</body>
+</html>

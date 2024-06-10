@@ -1,0 +1,48 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Carrossel de Imagens do Satoru Gojo</title>
+
+</head>
+<body>
+    <div class="carousel">
+        <img src="https://vocesabianime.com/wp-content/uploads/2023/10/Satoru_Gojo_e_citado_em_prova_de_fisica_brasileira_1133x637.jpg" class="active" alt="Imagem 1">
+        <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/74/2023/09/29/Gojo-Satoru-1626485619.jpg" alt="Imagem 2">
+        <img src="https://p16-capcut-sign-va.ibyteimg.com/tos-alisg-v-643f9f/o8EAkl7uoCJAVgt0xKICBiiBfnBk9ZANFfPB4Q~tplv-nhvfeczskr-1:250:0.webp?lk3s=44acef4b&x-expires=1742576641&x-signature=DNKxgIhp%2FaMpBEs8qMUbqg687ew%3D" alt="Imagem 3">
+        <img src="https://pbs.twimg.com/media/F6dAyFMW8AAPYhy.jpg:large" alt="Imagem 4">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel img');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>

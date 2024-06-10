@@ -1,0 +1,36 @@
+<!--Igor Daniel dos Santos Dias-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ do Gojo</title>
+    <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>FAQ do Gojo</h1>
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <div class="faq-question">Como funciona o azul?</div>
+            <div class="faq-answer">O azul tem a função de atrair toda a matéria existente que o feitiço alcançe usando a base do ilimitado.</div>
+        </div>
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <div class="faq-question">Como funciona o vermelho?</div>
+            <div class="faq-answer">O vermelho é o literal oposto do azul, empurrando tudo aquilo no alcançe, usando energia reversa com o ilimitado .</div>
+        </div>
+        <div class="faq-item" onclick="toggleAnswer(this)">
+            <div class="faq-question">Como funciona o roxo?</div>
+            <div class="faq-answer">Juntando o azul e o roxo a retração e atração criam um ponto nulo, que devora quase que tudo em seu caminho até sua energia se dissipar</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.querySelector('.faq-answer');
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!--Igor Daniel dos Santos Dias-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprodutor de Áudio do Gojo</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reprodutor de Áudio para o Gojo</h1>
+        <input type="file" id="audioFile" accept="audio/*">
+        <label for="audioFile"></label>
+        <audio id="audioPlayer"></audio>
+        <div class="controls">
+            <button onclick="playAudio()">Play</button>
+            <button onclick="pauseAudio()">Pause</button>
+            <button onclick="stopAudio()">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioFileInput = document.getElementById('audioFile');
+
+        audioFileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const fileURL = URL.createObjectURL(file);
+            audioPlayer.src = fileURL;
+        });
+
+        function playAudio() {
+            audioPlayer.play();
+        }
+
+        function pauseAudio() {
+            audioPlayer.pause();
+        }
+
+        function stopAudio() {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        }
+    </script>
+</body>
+</html>

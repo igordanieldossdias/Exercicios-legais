@@ -1,0 +1,18 @@
+body {
+    background-color: #a370ff;
+}
+
+
+ table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+}
+
+h1{
+    text-align: center;
+}

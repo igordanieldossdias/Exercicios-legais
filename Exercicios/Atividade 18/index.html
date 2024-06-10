@@ -1,0 +1,34 @@
+<!--Igor Daniel dos Santos Dias--> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de Satoru Gojo</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzRqf048TUYm01z3qYsJyLoy1Bd2834F0"></script>
+
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+
+            var initialCoordinates = { lat: 35.664035, lng: 139.698212 };
+
+
+            var mapOptions = {
+                center: initialCoordinates,
+                zoom: 10
+            };
+
+
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzRqf048TUYm01z3qYsJyLoy1Bd2834F0&callback=initMap" async defer></script>
+</body>
+</html>

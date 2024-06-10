@@ -1,0 +1,27 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palavras Azul + Vermelho</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="word-counter">
+        <textarea id="textInput" rows="5" placeholder="Digite aqui"></textarea>
+        <div id="wordCount">0 palavras</div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const wordCount = document.getElementById('wordCount');
+
+        textInput.addEventListener('input', function() {
+            const text = this.value.trim();
+            const words = text === '' ? 0 : text.split(/\s+/).length;
+            wordCount.textContent = words + (words === 1 ? ' palavra' : ' palavras');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+body{
+    background-color: #a370ff;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+label {
+    margin-bottom: .5em;
+    color: #333333;
+    display: block;
+}
+input, textarea {
+    border: 1px solid #ccc;
+    padding: .5em;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+button {
+    padding: 0.7em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.error {
+    border-color: red;
+}
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+    display: none;
+}
+
+h1{
+    text-align: center;
+}

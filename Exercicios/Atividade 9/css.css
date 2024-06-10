@@ -1,0 +1,39 @@
+
+  body {
+    background-color: #a370ff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.animate-btn {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.animate-btn:hover {
+    background-color: darkblue;
+}
+
+
+.animate {
+    animation: grow 0.5s forwards;
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}

@@ -1,0 +1,40 @@
+body{
+    background-color: #a370ff;
+    padding: 0%;
+    margin-top: 14%;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+
+    margin-left: 500px;
+    border: solid 3px rgb(255, 255, 255);
+    border-radius: 20px;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+img:hover {
+    border: solid 3px purple;
+}
+
+.itemlist{
+    background-color: blue;
+}
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            
+        }
+        li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .corzinha {
+            background-color: rgb(255, 0, 0);
+        }

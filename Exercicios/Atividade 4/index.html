@@ -1,0 +1,57 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Tabela do Gojo</title>
+
+</head>
+<body>
+    <h1>Tabela do Satoru Gojo para adicionar linhas</h1>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Coluna 1</th>
+                <th>Coluna 2</th>
+                <th>Coluna 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Linha 1 da Coluna 1</td>
+                <td>Linha 1 da Coluna 2</td>
+                <td>Linha 1 da Coluna 3</td>
+            </tr>
+            <tr>
+                <td>Linha 2 da Coluna 1</td>
+                <td>Linha 2 da Coluna 2</td>
+                <td>Linha 2 da Coluna 3</td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="addRow()">Adicionar Linha</button>
+
+    <script>
+   
+        function addRow() {
+            
+            let tableBody = document.querySelector('#myTable tbody');
+            
+         
+            let newRow = document.createElement('tr');
+
+            
+            for (let i = 1; i <= 3; i++) {
+                let newCell = document.createElement('td');
+                newCell.textContent = `Nova Linha, Coluna ${i}`;
+                newRow.appendChild(newCell);
+            }
+
+         
+            tableBody.appendChild(newRow);
+        }
+    </script>
+</body>
+</html>

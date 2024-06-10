@@ -1,0 +1,48 @@
+<!--Igor Daniel dos Santos Dias-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens do Gojo</title>
+    <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+    <div class="categories">
+        <button class="category-btn" data-category="all">Todos</button>
+        <button class="category-btn" data-category="Gojo">Gojo</button>
+        <button class="category-btn" data-category="Go/jo">Go/jo</button>
+        <button class="category-btn" data-category="Subuxa">Subuxa</button>
+    </div>
+
+    <div class="gallery">
+        <img src="https://animenew.com.br/wp-content/uploads/2023/05/jujutsu-kaisen-gojo-satoru--jpg.webp" data-category="Gojo">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/127a90c3-cb29-481c-a65d-90b104430e81/dgtie4z-7451a7e0-7c7b-41c9-bd81-ade8bd6264fb.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEyN2E5MGMzLWNiMjktNDgxYy1hNjVkLTkwYjEwNDQzMGU4MVwvZGd0aWU0ei03NDUxYTdlMC03YzdiLTQxYzktYmQ4MS1hZGU4YmQ2MjY0ZmIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.sn6EKWQJkEHEO0CYDY_2LTI-PhqKKl_vFlTPxWgT65U" data-category="Go/jo">
+        <img src="https://i1.wp.com/guiadoanime.com.br/wp-content/uploads/2024/01/A-surpreendente-habilidade-de-Sukuna-prova-o-que-torna-Jujutsu.jpg" data-category="Subuxa">
+        <img src="https://animenew.com.br/wp-content/uploads/2023/05/jujutsu-kaisen-gojo-satoru--jpg.webp" data-category="Gojo">
+        <img src="https://steamuserimages-a.akamaihd.net/ugc/1735548946630065027/C957493DF72EEA0B2DD9230784508A3A904DF8B6/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" data-category="Subuxa">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjHeZ2gB_TFRE_RLa7_B0C8A6WwFhVtMWeCw&s" data-category="Go/jo">
+    </div>
+
+    <script>
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                filterImages(category);
+            });
+        });
+
+        function filterImages(category) {
+            const images = document.querySelectorAll('.gallery img');
+            images.forEach(image => {
+                if (category === 'all' || image.getAttribute('data-category') === category) {
+                    image.style.display = 'inline';
+                } else {
+                    image.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

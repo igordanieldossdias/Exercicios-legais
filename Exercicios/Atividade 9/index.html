@@ -1,0 +1,29 @@
+<!--Igor Daniel dos Santos Dias-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação CSS com Botão Do satoru Gojo</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <button class="animate-btn" id="animateButton">Azul = Atrair</button>
+
+    <script>
+        document.getElementById('animateButton').addEventListener('click', function() {
+            let button = this;
+
+
+            button.classList.remove('animate');
+
+            
+            void button.offsetWidth;
+
+          
+            button.classList.add('animate');
+        });
+    </script>
+</body>
+</html>
