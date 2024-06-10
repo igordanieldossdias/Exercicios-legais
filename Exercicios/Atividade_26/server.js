@@ -1,3 +1,4 @@
+/* Igor Daniel dos Santos Dias */
 const WebSocket = require('ws');
 
 const server = new WebSocket.Server({ port: 8080 });
